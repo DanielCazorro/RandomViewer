@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var svTwoParagraph: UIStackView!
     @IBOutlet weak var tfLeftParagraph: UITextView!
     @IBOutlet weak var tfRightParagraph: UITextView!
+    @IBOutlet weak var ivDronImage: UIImageView!
     
     // Instancia del ViewModel
     let viewModel = MainViewModel()
@@ -22,6 +23,9 @@ class MainViewController: UIViewController {
         
         // Llamamos a la función para generar texto aleatorio cuando la vista se carga
         generateRandomText()
+        
+        // Editar la imagen
+        editImageView()
     }
 
     // Función para generar texto aleatorio y asignarlo a los UITextView
@@ -30,6 +34,21 @@ class MainViewController: UIViewController {
         tfLeftParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
         tfRightParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
     }
+    
+    // Función para editar la imagen
+       func editImageView() {
+           // Establecer el radio de la esquina
+           ivDronImage.layer.cornerRadius = 16
+           ivDronImage.clipsToBounds = true
+           
+           // Agregar sombra
+           ivDronImage.layer.shadowColor = UIColor.black.cgColor
+           ivDronImage.layer.shadowOpacity = 0.8 // Esto aumenta la opacidad
+           ivDronImage.layer.shadowOffset = CGSize(width: 0, height: 4) // Aumenta el desplazamiento hacia abajo
+           ivDronImage.layer.shadowRadius = 6 // Aumentar el radio de la sombra
+           
+           // Otras ediciones de imagen (como cambiar el tamaño, cambiar la imagen, etc.) se pueden hacer aquí
+       }
 
 }
 
