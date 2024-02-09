@@ -44,14 +44,23 @@ class MainViewController: UIViewController {
     private func generateBoxViews() {
         for _ in 0..<Int.random(in: 3...10) {
             let customItemView = CustomItemView()
-            let icon = UIImage(systemName: "person.circle")
+            guard let icon = UIImage(systemName: "person.circle") else {
+                print("Error: No se pudo cargar la imagen")
+                return
+            }
+            //let icon = UIImage(systemName: "person.circle")!
             let text = viewModel?.generateRandomText(length: Int.random(in: 10...120)) ?? ""
             let amount = Double.random(in: 10.0...1000.0)
             customItemView.configure(with: icon, text: text, amount: amount)
-            svBoxElements.addArrangedSubview(customItemView)
+            
+            // Imprimir para verificar los datos generados
+            print("Icono: \(icon), Texto: \(text), Cantidad: \(amount)")
             
             // Añadir la vista personalizada al StackView
             svBoxElements.addArrangedSubview(customItemView)
+            
+            // Imprimir para verificar si se añadió correctamente al StackView
+            print("Vista personalizada añadida al StackView")
             
             // Aquí se podría configurar restricciones de tamaño de la vista
         }
@@ -86,6 +95,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func btTapRandomBox(_ sender: Any) {
+        generateBoxViews()
     }
     // Generar aquí los elementos aleatorios de la caja
     
