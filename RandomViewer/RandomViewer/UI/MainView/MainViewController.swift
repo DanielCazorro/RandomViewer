@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     // Outlets para los elementos de la vista
+    @IBOutlet weak var btRandomParagraph: UIButton!
     @IBOutlet weak var svTwoParagraph: UIStackView!
     @IBOutlet weak var tfLeftParagraph: UITextView!
     @IBOutlet weak var tfRightParagraph: UITextView!
@@ -49,6 +50,11 @@ class MainViewController: UIViewController {
            
            // Otras ediciones de imagen (como cambiar el tamaño, cambiar la imagen, etc.) se pueden hacer aquí
        }
-
+    
+    // MARK: - IBAction
+    @IBAction func btTapRandomParagraph(_ sender: Any) {
+        generateRandomText()
+    }
+    
 }
 
