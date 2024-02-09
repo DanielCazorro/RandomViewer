@@ -28,6 +28,28 @@ class CustomItemView: UIView {
         addSubview(textLabel)
         addSubview(amountLabel)
 
+        // Agregar restricciones de diseño
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
+            textLabel.translatesAutoresizingMaskIntoConstraints = false
+            amountLabel.translatesAutoresizingMaskIntoConstraints = false
+
+            NSLayoutConstraint.activate([
+                // Restricciones para el icono
+                iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+                iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+                iconImageView.widthAnchor.constraint(equalToConstant: 30),
+                iconImageView.heightAnchor.constraint(equalToConstant: 30),
+
+                // Restricciones para el texto
+                textLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+                textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+                textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+
+                // Restricciones para la cantidad
+                amountLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+                amountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8) // Ajuste aquí
+            ])
+        
         // Configurar restricciones de diseño
         // (tamaño, posición, espaciado, etc.) usando Auto Layout
 

@@ -42,6 +42,9 @@ class MainViewController: UIViewController {
     
     // Genera las vistas de la caja
     private func generateBoxViews() {
+        print("Cantidad de subvistas antes de agregar los elementos: \(svBoxElements.arrangedSubviews.count)")
+        print("Tamaño de svBoxElements antes de agregar los elementos: \(svBoxElements.frame.size)")
+            
         for _ in 0..<Int.random(in: 3...10) {
             let customItemView = CustomItemView()
             guard let icon = UIImage(systemName: "person.circle") else {
@@ -64,6 +67,8 @@ class MainViewController: UIViewController {
             
             // Aquí se podría configurar restricciones de tamaño de la vista
         }
+        print("Cantidad de subvistas después de agregar los elementos: \(svBoxElements.arrangedSubviews.count)")
+        print("Tamaño de svBoxElements después de agregar los elementos: \(svBoxElements.frame.size)")
     }
     
     // Función para generar texto aleatorio y asignarlo a los UITextView
