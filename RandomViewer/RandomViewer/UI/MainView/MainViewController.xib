@@ -90,13 +90,11 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-rD-Gnu" customClass="CustomItemView" customModule="RandomViewer" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="377" height="44"/>
-                                            <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Wsu-JO-wmW"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

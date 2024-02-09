@@ -36,18 +36,20 @@ class CustomItemView: UIView {
             NSLayoutConstraint.activate([
                 // Restricciones para el icono
                 iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-                iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+                iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
                 iconImageView.widthAnchor.constraint(equalToConstant: 30),
                 iconImageView.heightAnchor.constraint(equalToConstant: 30),
 
                 // Restricciones para el texto
                 textLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-                textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-                textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+                textLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-                // Restricciones para la cantidad
-                amountLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-                amountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8) // Ajuste aquí
+                textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+                textLabel.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: -8),
+
+                // Restricciones para el cantidad
+                amountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+                amountLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         
         // Configurar restricciones de diseño
