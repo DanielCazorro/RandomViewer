@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tfLeftParagraph: UITextView!
     @IBOutlet weak var tfRightParagraph: UITextView!
     @IBOutlet weak var ivDronImage: UIImageView!
+    @IBOutlet weak var btRandomBox: UIButton!
+    @IBOutlet weak var svBoxElements: UIStackView!
     
     // Instancia del ViewModel
     private var viewModel: MainViewModel?
@@ -59,6 +61,10 @@ class MainViewController: UIViewController {
     @IBAction func btTapRandomParagraph(_ sender: Any) {
         generateRandomText()
     }
+    
+    @IBAction func btTapRandomBox(_ sender: Any) {
+    }
+    // Generar aquí los elementos aleatorios de la caja
     
 }
 
