@@ -86,12 +86,12 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-bf-YdF">
-                                    <rect key="frame" x="8" y="649" width="377" height="44"/>
+                                    <rect key="frame" x="8" y="649" width="377" height="52"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-rD-Gnu" customClass="CustomItemView" customModule="RandomViewer" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="377" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="52"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="Wsu-JO-wmW"/>
+                                                <constraint firstAttribute="height" constant="52" id="Wsu-JO-wmW"/>
                                             </constraints>
                                         </view>
                                     </subviews>

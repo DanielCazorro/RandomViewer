@@ -42,8 +42,8 @@ class MainViewController: UIViewController {
     
     // Genera las vistas de la caja
     private func generateBoxViews() {
-        print("Cantidad de subvistas antes de agregar los elementos: \(svBoxElements.arrangedSubviews.count)")
-        print("Tamaño de svBoxElements antes de agregar los elementos: \(svBoxElements.frame.size)")
+        // Eliminar las subvistas existentes
+        svBoxElements.subviews.forEach { $0.removeFromSuperview() }
             
         for _ in 0..<Int.random(in: 3...10) {
             let customItemView = CustomItemView()
@@ -56,19 +56,9 @@ class MainViewController: UIViewController {
             let amount = Double.random(in: 10.0...1000.0)
             customItemView.configure(with: icon, text: text, amount: amount)
             
-            // Imprimir para verificar los datos generados
-            print("Icono: \(icon), Texto: \(text), Cantidad: \(amount)")
-            
             // Añadir la vista personalizada al StackView
             svBoxElements.addArrangedSubview(customItemView)
-            
-            // Imprimir para verificar si se añadió correctamente al StackView
-            print("Vista personalizada añadida al StackView")
-            
-            // Aquí se podría configurar restricciones de tamaño de la vista
         }
-        print("Cantidad de subvistas después de agregar los elementos: \(svBoxElements.arrangedSubviews.count)")
-        print("Tamaño de svBoxElements después de agregar los elementos: \(svBoxElements.frame.size)")
     }
     
     // Función para generar texto aleatorio y asignarlo a los UITextView
