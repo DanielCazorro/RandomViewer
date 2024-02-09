@@ -29,6 +29,14 @@ class MainViewController: UIViewController {
         
         // Editar la imagen
         editImageView()
+        
+        for _ in 0..<Int.random(in: 3...10) {
+            let customItemView = CustomItemView()
+            let icon = UIImage(systemName: "person.circle")
+            let text = generateRandomText() // Crear otra función diferente
+            let amount = Double.random(in: 10.0...1000.0)
+            customItemView.configure(with: icon, text: text, amount: amount)
+            svBoxElements.addArrangedSubview(customItemView)
     }
     
     func set(viewModel: MainViewModel) {
