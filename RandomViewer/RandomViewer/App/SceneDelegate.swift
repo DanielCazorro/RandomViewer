@@ -20,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         
         let navigationController = UINavigationController()
-        let mainViewController = MainViewController()
         
-        navigationController.setViewControllers([mainViewController], animated: true)
+        let mainViewWireframe = MainViewWireframe()
+        
+        navigationController.setViewControllers([mainViewWireframe.viewController], animated: true)
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
