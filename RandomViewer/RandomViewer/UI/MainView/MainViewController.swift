@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var ivDronImage: UIImageView!
     
     // Instancia del ViewModel
-    let viewModel = MainViewModel()
+    private var viewModel: MainViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,16 @@ class MainViewController: UIViewController {
         // Editar la imagen
         editImageView()
     }
+    
+    func set(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+    }
 
     // Función para generar texto aleatorio y asignarlo a los UITextView
     func generateRandomText() {
         // Llamamos al método del ViewModel para generar texto aleatorio
-        tfLeftParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
-        tfRightParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
+        tfLeftParagraph.text = viewModel?.generateRandomText(length: Int.random(in: 50...400))
+        tfRightParagraph.text = viewModel?.generateRandomText(length: Int.random(in: 50...400))
     }
     
     // Función para editar la imagen

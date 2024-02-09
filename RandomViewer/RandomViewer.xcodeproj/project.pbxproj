@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5827842B76177600C7B900 /* MainViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5827832B76177600C7B900 /* MainViewWireframe.swift */; };
 		2C78F8772B6A471F00ED1C4C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C78F8762B6A471F00ED1C4C /* MainViewModel.swift */; };
 		2CDBB0CC2B6A4582005EF99B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDBB0CB2B6A4582005EF99B /* AppDelegate.swift */; };
 		2CDBB0CE2B6A4582005EF99B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDBB0CD2B6A4582005EF99B /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C5827832B76177600C7B900 /* MainViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewWireframe.swift; sourceTree = "<group>"; };
 		2C78F8762B6A471F00ED1C4C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2CDBB0C82B6A4582005EF99B /* RandomViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDBB0CB2B6A4582005EF99B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				2CDBB0E32B6A4602005EF99B /* MainViewController.xib */,
 				2CDBB0E22B6A4602005EF99B /* MainViewController.swift */,
 				2C78F8762B6A471F00ED1C4C /* MainViewModel.swift */,
+				2C5827832B76177600C7B900 /* MainViewWireframe.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5827842B76177600C7B900 /* MainViewWireframe.swift in Sources */,
 				2CDBB0E42B6A4602005EF99B /* MainViewController.swift in Sources */,
 				2CDBB0CC2B6A4582005EF99B /* AppDelegate.swift in Sources */,
 				2CDBB0CE2B6A4582005EF99B /* SceneDelegate.swift in Sources */,
