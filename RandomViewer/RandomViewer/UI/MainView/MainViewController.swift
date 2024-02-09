@@ -36,8 +36,8 @@ class MainViewController: UIViewController {
     // Función para generar texto aleatorio y asignarlo a los UITextView
     func generateRandomText() {
         // Llamamos al método del ViewModel para generar texto aleatorio
-        tfLeftParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
-        tfRightParagraph.text = viewModel.generateRandomText(length: Int.random(in: 50...400))
+        tfLeftParagraph.text = viewModel?.generateRandomText(length: Int.random(in: 50...400))
+        tfRightParagraph.text = viewModel?.generateRandomText(length: Int.random(in: 50...400))
     }
     
     // Función para editar la imagen
