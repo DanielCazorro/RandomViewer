@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
             }
             //let icon = UIImage(systemName: "person.circle")!
             let text = viewModel?.generateRandomText(length: Int.random(in: 10...120)) ?? ""
-            let amount = Double.random(in: 10.0...1000.0)
+            let amount = Double.random(in: 10.0...1000000000000.0)
             customItemView.configure(with: icon, text: text, amount: amount)
             
             // Añadir la vista personalizada al StackView
