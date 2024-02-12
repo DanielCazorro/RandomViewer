@@ -55,16 +55,21 @@ class MainViewController: UIViewController, UICollectionViewDelegate {
         // Setup collection view datasource and delegate
         cvUsersCollectionView.dataSource = self
         cvUsersCollectionView.delegate = self
-
+        
         // Register collection view cells
         cvUsersCollectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        
+        cvUsersCollectionView.isPagingEnabled = true
+        
+        cvUsersCollectionView.decelerationRate = .fast
+        
     }
     
     // Genera las vistas de la caja
     private func generateBoxViews() {
         // Eliminar las subvistas existentes
         svBoxElements.subviews.forEach { $0.removeFromSuperview() }
-            
+        
         for _ in 0..<Int.random(in: 3...10) {
             let customItemView = CustomItemView()
             guard let icon = UIImage(systemName: "person.circle") else {
@@ -125,16 +130,16 @@ extension MainViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
             fatalError("Unable to dequeue UserCollectionViewCell")
         }
-
+        
         // Configure cell with user data
         let userName = viewModel?.userName(at: indexPath.item) ?? ""
         let userAge = viewModel?.userAge(at: indexPath.item) ?? 0
         let userSex = viewModel?.userSex(at: indexPath.item) ?? ""
         let userHobbies = viewModel?.userHobbies(at: indexPath.item) ?? []
         let userDescription = viewModel?.userDescription(at: indexPath.item) ?? ""
-
+        
         cell.configureCustomCell(with: userName, age: userAge, sex: userSex, hobbies: userHobbies, description: userDescription)
-
+        
         return cell
     }
     
