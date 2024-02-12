@@ -111,11 +111,44 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ONd-Qh-yDh">
+                                    <rect key="frame" x="8" y="861" width="377" height="160"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7H9-6r-8Sg">
+                                            <rect key="frame" x="0.0" y="0.0" width="125.66666666666667" height="160"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="itU-R1-VDe">
+                                            <rect key="frame" x="125.66666666666666" y="0.0" width="125.66666666666666" height="160"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fNr-Bd-NDc">
+                                            <rect key="frame" x="251.33333333333329" y="0.0" width="125.66666666666666" height="160"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="160" id="9ac-Us-WcM"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="hxQ-9l-egt" firstAttribute="top" secondItem="ZrJ-pb-nVT" secondAttribute="bottom" constant="8" id="2ta-vy-jJJ"/>
                                 <constraint firstItem="xJ3-qL-yB6" firstAttribute="leading" secondItem="8q0-bB-xjh" secondAttribute="leading" constant="8" id="5kK-Bq-xeN"/>
+                                <constraint firstItem="ONd-Qh-yDh" firstAttribute="top" secondItem="Yrf-xJ-iYw" secondAttribute="bottom" constant="16" id="751-MR-tdc"/>
                                 <constraint firstItem="nq5-zd-Ve1" firstAttribute="top" secondItem="8q0-bB-xjh" secondAttribute="top" constant="8" id="Eon-3o-lTt"/>
                                 <constraint firstAttribute="trailing" secondItem="hxQ-9l-egt" secondAttribute="trailing" constant="8" id="HlY-WD-j7b"/>
                                 <constraint firstItem="hxQ-9l-egt" firstAttribute="leading" secondItem="8q0-bB-xjh" secondAttribute="leading" constant="8" id="L0N-Bh-EfF"/>
@@ -127,7 +160,9 @@
                                 <constraint firstAttribute="trailing" secondItem="1Fe-bf-YdF" secondAttribute="trailing" constant="8" id="bRG-aK-hkT"/>
                                 <constraint firstItem="Yrf-xJ-iYw" firstAttribute="leading" secondItem="8q0-bB-xjh" secondAttribute="leading" constant="8" id="bff-PC-qdu"/>
                                 <constraint firstAttribute="trailing" secondItem="Yrf-xJ-iYw" secondAttribute="trailing" id="j8b-PU-ITH"/>
+                                <constraint firstItem="ONd-Qh-yDh" firstAttribute="leading" secondItem="8q0-bB-xjh" secondAttribute="leading" constant="8" id="jqc-lI-6XR"/>
                                 <constraint firstAttribute="trailing" secondItem="ZrJ-pb-nVT" secondAttribute="trailing" constant="8" id="kdR-hP-AKx"/>
+                                <constraint firstAttribute="trailing" secondItem="ONd-Qh-yDh" secondAttribute="trailing" constant="8" id="lAM-cx-w03"/>
                                 <constraint firstItem="Yrf-xJ-iYw" firstAttribute="top" secondItem="1Fe-bf-YdF" secondAttribute="bottom" constant="16" id="nC1-5E-Dgn"/>
                                 <constraint firstItem="ZrJ-pb-nVT" firstAttribute="leading" secondItem="8q0-bB-xjh" secondAttribute="leading" constant="8" id="nda-mD-ydo"/>
                                 <constraint firstItem="xJ3-qL-yB6" firstAttribute="top" secondItem="nq5-zd-Ve1" secondAttribute="bottom" constant="8" id="oJE-Dk-yVH"/>
