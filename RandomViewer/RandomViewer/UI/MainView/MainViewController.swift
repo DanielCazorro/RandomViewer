@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - IBOutlet
     @IBOutlet weak var btRandomParagraph: UIButton!
@@ -37,6 +37,8 @@ class MainViewController: UIViewController {
         generateBoxViews()
         
         setupViewModel()
+        
+        setupCollectionView()
     }
     
     // MARK: - Functions
@@ -55,7 +57,7 @@ class MainViewController: UIViewController {
         cvUsersCollectionView.delegate = self
 
         // Register collection view cells
-        cvUsersCollectionView.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "UserCell")
+        cvUsersCollectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
     }
     
     // Genera las vistas de la caja
@@ -120,7 +122,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as? UserCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
             fatalError("Unable to dequeue UserCollectionViewCell")
         }
 
@@ -131,7 +133,7 @@ extension MainViewController: UICollectionViewDataSource {
         let userHobbies = viewModel?.userHobbies(at: indexPath.item) ?? []
         let userDescription = viewModel?.userDescription(at: indexPath.item) ?? ""
 
-        cell.configure(with: userName, age: userAge, sex: userSex, hobbies: userHobbies, description: userDescription)
+        cell.configureCustomCell(with: userName, age: userAge, sex: userSex, hobbies: userHobbies, description: userDescription)
 
         return cell
     }

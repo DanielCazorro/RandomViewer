@@ -24,7 +24,7 @@ class MainViewWireframe {
 
     // MARK: - Private methods
     private func createViewModel(with: MainViewDataManager) -> MainViewModel {
-        return MainViewModel()
+        return MainViewModel(dataManager: MainViewDataManager())
     }
     
     private func createDataManager() -> MainViewDataManager {

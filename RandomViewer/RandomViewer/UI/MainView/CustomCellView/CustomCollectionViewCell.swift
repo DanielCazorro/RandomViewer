@@ -8,6 +8,9 @@
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
+    //MARK: - Properties
+    static let identifier = "CustomCollectionViewCell"
+    
     //MARK: - IBOutlet
     @IBOutlet weak var imPicture: UIImageView!
     @IBOutlet weak var lbNameLabel: UILabel!
@@ -22,4 +25,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    // Method to configure cell with user data
+    func configureCustomCell(with name: String, age: Int, sex: String, hobbies: [String], description: String) {
+        lbNameLabel.text = "Name: \(name)"
+        lbAgeLabel.text = "Age: \(age)"
+        lbSexLabel.text = "Sex: \(sex)"
+        lbHobbiesLabel.text = "Hobbies: \(hobbies.joined(separator: ", "))"
+        tvDescriptionTextView.text = "Description: \(description)"
+        
+        imPicture.image = UIImage(systemName: "person.circle")
+    }
 }
