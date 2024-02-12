@@ -44,12 +44,12 @@ class CustomItemView: UIView {
             textLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
             textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            textLabel.trailingAnchor.constraint(lessThanOrEqualTo: amountLabel.leadingAnchor, constant: -8),
+            textLabel.trailingAnchor.constraint(lessThanOrEqualTo: amountLabel.leadingAnchor, constant: -16),
             
             // Restricciones para el cantidad
             amountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             amountLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            amountLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 80) // Ancho máximo para el precio
+            amountLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 200) // Ancho máximo para el precio
         ])
         
         // Configurar lineBreakMode para el texto

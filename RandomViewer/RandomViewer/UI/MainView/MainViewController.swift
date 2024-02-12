@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - IBOutlet
     @IBOutlet weak var btRandomParagraph: UIButton!
@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var ivDronImage: UIImageView!
     @IBOutlet weak var btRandomBox: UIButton!
     @IBOutlet weak var svBoxElements: UIStackView!
+    @IBOutlet weak var cvUsersCollectionView: UICollectionView!
+    @IBOutlet weak var cvfUsersCollectionViewFlow: UICollectionViewFlowLayout!
     
     // MARK: - Properties
     private var viewModel: MainViewModel?
@@ -33,6 +35,10 @@ class MainViewController: UIViewController {
         
         // Genera las vistas de la caja
         generateBoxViews()
+        
+        setupViewModel()
+        
+        setupCollectionView()
     }
     
     // MARK: - Functions
@@ -40,11 +46,30 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
     }
     
+    private func setupViewModel() {
+        let dataManager = MainViewDataManager()
+        viewModel = MainViewModel(dataManager: dataManager)
+    }
+    
+    private func setupCollectionView() {
+        // Setup collection view datasource and delegate
+        cvUsersCollectionView.dataSource = self
+        cvUsersCollectionView.delegate = self
+        
+        // Register collection view cells
+        cvUsersCollectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        
+        cvUsersCollectionView.isPagingEnabled = true
+        
+        cvUsersCollectionView.decelerationRate = .fast
+        
+    }
+    
     // Genera las vistas de la caja
     private func generateBoxViews() {
         // Eliminar las subvistas existentes
         svBoxElements.subviews.forEach { $0.removeFromSuperview() }
-            
+        
         for _ in 0..<Int.random(in: 3...10) {
             let customItemView = CustomItemView()
             guard let icon = UIImage(systemName: "person.circle") else {
@@ -53,7 +78,7 @@ class MainViewController: UIViewController {
             }
             //let icon = UIImage(systemName: "person.circle")!
             let text = viewModel?.generateRandomText(length: Int.random(in: 10...120)) ?? ""
-            let amount = Double.random(in: 10.0...1000.0)
+            let amount = Double.random(in: 10.0...1000000000000.0)
             customItemView.configure(with: icon, text: text, amount: amount)
             
             // Añadir la vista personalizada al StackView
@@ -96,4 +121,26 @@ class MainViewController: UIViewController {
     
 }
 
-
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel?.numberOfUsers() ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
+            fatalError("Unable to dequeue UserCollectionViewCell")
+        }
+        
+        // Configure cell with user data
+        let userName = viewModel?.userName(at: indexPath.item) ?? ""
+        let userAge = viewModel?.userAge(at: indexPath.item) ?? 0
+        let userSex = viewModel?.userSex(at: indexPath.item) ?? ""
+        let userHobbies = viewModel?.userHobbies(at: indexPath.item) ?? []
+        let userDescription = viewModel?.userDescription(at: indexPath.item) ?? ""
+        
+        cell.configureCustomCell(with: userName, age: userAge, sex: userSex, hobbies: userHobbies, description: userDescription)
+        
+        return cell
+    }
+    
+}

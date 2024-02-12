@@ -15,15 +15,19 @@ class MainViewWireframe {
      var viewController: MainViewController {
         // Generating module components
         let viewController = MainViewController()
-         
-        let viewModel: MainViewModel = createViewModel()
+        let dataManager = createDataManager()
+        let viewModel: MainViewModel = createViewModel(with: dataManager)
          
         viewController.set(viewModel: viewModel)
         return viewController
     }
 
     // MARK: - Private methods
-    private func createViewModel() -> MainViewModel {
-        return MainViewModel()
+    private func createViewModel(with: MainViewDataManager) -> MainViewModel {
+        return MainViewModel(dataManager: MainViewDataManager())
+    }
+    
+    private func createDataManager() -> MainViewDataManager {
+        return MainViewDataManager()
     }
 }
