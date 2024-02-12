@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var ivDronImage: UIImageView!
     @IBOutlet weak var btRandomBox: UIButton!
     @IBOutlet weak var svBoxElements: UIStackView!
+    @IBOutlet weak var cvUsersCollectionView: UICollectionView!
+    @IBOutlet weak var cvfUsersCollectionViewFlow: UICollectionViewFlowLayout!
     
     // MARK: - Properties
     private var viewModel: MainViewModel?
