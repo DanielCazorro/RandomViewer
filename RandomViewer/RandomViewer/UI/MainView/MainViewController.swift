@@ -35,11 +35,27 @@ class MainViewController: UIViewController {
         
         // Genera las vistas de la caja
         generateBoxViews()
+        
+        setupViewModel()
     }
     
     // MARK: - Functions
     func set(viewModel: MainViewModel) {
         self.viewModel = viewModel
+    }
+    
+    private func setupViewModel() {
+        let dataManager = MainViewDataManager()
+        viewModel = MainViewModel(dataManager: dataManager)
+    }
+    
+    private func setupCollectionView() {
+        // Setup collection view datasource and delegate
+        cvUsersCollectionView.dataSource = self
+        cvUsersCollectionView.delegate = self
+
+        // Register collection view cells
+        cvUsersCollectionView.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "UserCell")
     }
     
     // Genera las vistas de la caja
@@ -98,4 +114,26 @@ class MainViewController: UIViewController {
     
 }
 
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel?.numberOfUsers() ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as? UserCollectionViewCell else {
+            fatalError("Unable to dequeue UserCollectionViewCell")
+        }
 
+        // Configure cell with user data
+        let userName = viewModel?.userName(at: indexPath.item) ?? ""
+        let userAge = viewModel?.userAge(at: indexPath.item) ?? 0
+        let userSex = viewModel?.userSex(at: indexPath.item) ?? ""
+        let userHobbies = viewModel?.userHobbies(at: indexPath.item) ?? []
+        let userDescription = viewModel?.userDescription(at: indexPath.item) ?? ""
+
+        cell.configure(with: userName, age: userAge, sex: userSex, hobbies: userHobbies, description: userDescription)
+
+        return cell
+    }
+    
+}
