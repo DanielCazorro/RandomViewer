@@ -144,3 +144,13 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
 }
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Calcula el tamaño deseado para cada celda
+        let cellWidth = collectionView.frame.width - 0
+        let cellHeight: CGFloat = 96
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+}
