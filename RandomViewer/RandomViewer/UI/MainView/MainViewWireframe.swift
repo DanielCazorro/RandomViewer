@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 class MainViewWireframe {
-    
+
     // MARK: - Properties
      var viewController: MainViewController {
         // Generating module components
         let viewController = MainViewController()
         let dataManager = createDataManager()
         let viewModel: MainViewModel = createViewModel(with: dataManager)
-         
+
         viewController.set(viewModel: viewModel)
         return viewController
     }
@@ -26,7 +26,7 @@ class MainViewWireframe {
     private func createViewModel(with: MainViewDataManager) -> MainViewModel {
         return MainViewModel(dataManager: MainViewDataManager())
     }
-    
+
     private func createDataManager() -> MainViewDataManager {
         return MainViewDataManager()
     }
