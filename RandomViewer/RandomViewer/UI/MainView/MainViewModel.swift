@@ -10,17 +10,17 @@ import Foundation
 class MainViewModel {
     private let dataManager: MainViewDataManager
     private var users: [User] = []
-    
+
     init(dataManager: MainViewDataManager) {
         self.dataManager = dataManager
         self.users = dataManager.users
     }
-    
+
     // CollectionView Users information
     func numberOfUsers() -> Int {
         return users.count
     }
-    
+
     func userName(at index: Int) -> String {
         guard index < users.count else { return "" }
         return users[index].name
@@ -45,10 +45,10 @@ class MainViewModel {
         guard index < users.count else { return "" }
         return users[index].description
     }
-    
+
     // Método para generar texto aleatorio
     func generateRandomText(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-        return String((0..<length).map{ _ in letters.randomElement()! })
+        return String((0..<length).map { _ in letters.randomElement()! })
     }
 }
